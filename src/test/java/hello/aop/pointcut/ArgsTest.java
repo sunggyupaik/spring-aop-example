@@ -54,17 +54,17 @@ public class ArgsTest {
 		//Args
 		assertThat(pointcut("args(String)")
 				.matches(helloMethod, MemberServiceImpl.class)).isTrue();
-		assertThat(pointcut("args(java.io.Serialize)")
+		assertThat(pointcut("args(java.io.Serializable))")
 				.matches(helloMethod, MemberServiceImpl.class)).isTrue();
 		assertThat(pointcut("args(Object)")
 				.matches(helloMethod, MemberServiceImpl.class)).isTrue();
 
 		//Execution
-		assertThat(pointcut("execution(* *(String)")
+		assertThat(pointcut("execution(* *(String))")
 				.matches(helloMethod, MemberServiceImpl.class)).isTrue();
-		assertThat(pointcut("execution(* *(java.io.Serialize)")
+		assertThat(pointcut("execution(* *(java.io.Serializable))")
 				.matches(helloMethod, MemberServiceImpl.class)).isFalse();
-		assertThat(pointcut("args(* *(Object)")
+		assertThat(pointcut("execution(* *(Object))")
 				.matches(helloMethod, MemberServiceImpl.class)).isFalse();
 	}
 }
