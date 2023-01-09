@@ -1,7 +1,9 @@
 package hello.aop.member;
 
 import hello.aop.member.annotation.MethodAop;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MemberServiceImpl implements MemberService {
 	@Override
 	@MethodAop("test value")
